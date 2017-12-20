@@ -1,7 +1,7 @@
 const { map, floor, ceil } = require('lodash/fp')
 
 module.exports = {
-    interpolateArray (data, fit) {
+    interpolateArray (fit, data) {
 
         const linearInterpolate = before => after => atPoint =>
             before + (after - before) * atPoint
