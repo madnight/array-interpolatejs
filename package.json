@@ -1,6 +1,6 @@
 {
   "name": "array-interpolatejs",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Interpolate an array of numbers in js Edit",
   "author": "Fabian Beuke <mail@beuke.org>",
   "license": "MIT",
