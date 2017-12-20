@@ -1,21 +1,21 @@
-const { map, floor, ceil } = require("lodash/fp")
+const { map, floor, ceil } = require('lodash/fp')
 
 module.exports = {
-  interpolateArray (data, fit) {
+    interpolateArray (data, fit) {
 
-    const linearInterpolate = before => after => atPoint =>
-        before + (after - before) * atPoint
+        const linearInterpolate = before => after => atPoint =>
+            before + (after - before) * atPoint
 
-	const springFactor = (data.length - 1) / (fit - 1)
+        const springFactor = (data.length - 1) / (fit - 1)
 
-    const interp = index => {
-        const spring = index * springFactor
-		const before = floor(spring)
-		const after = ceil(spring)
-		const atPoint = spring - floor(spring)
-		return linearInterpolate(data[before])(data[after])(atPoint)
+        const interp = index => {
+            const spring = index * springFactor
+            const before = floor(spring)
+            const after = ceil(spring)
+            const atPoint = spring - floor(spring)
+            return linearInterpolate(data[before])(data[after])(atPoint)
+        }
+
+        return map.convert({'cap':0})((_, i) => interp(i))(Array(fit))
     }
-
-    return map.convert({'cap':0})((_, i) => interp(i))(new Array(fit))
-  }
 }

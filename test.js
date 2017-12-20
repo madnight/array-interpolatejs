@@ -1,4 +1,8 @@
 const { interpolateArray } = require('./index.js')
+const test = require('ava')
+const print = string => process.stdout.write(string + '\n')
 
-const newArry = interpolateArray([1,2,56.99,60,7,3,5,3,2,5,9], 7)
-console.log(newArry)
+test('supports negative number', t => {
+    t.deepEqual(interpolateArray([1, 2, 3], 3), [1, 2, 3])
+    t.deepEqual(interpolateArray([1, 2, 3], 5), [1, 1.5, 2, 2.5, 3])
+})
