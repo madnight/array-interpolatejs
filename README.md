@@ -2,7 +2,7 @@
 Interpolate an array of numbers in js
 
 ## Requirements
-* node 8.0 or higher (need fancy syntax features thats why 8+)
+* node 8.0 or higher
 * npm or yarn
 
 ## Installation
